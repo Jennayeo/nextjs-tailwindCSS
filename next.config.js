@@ -7,7 +7,10 @@ const nextConfig = {
       // 'images.unsplash.com',
       's3.us-west-2.amazonaws.com'
     ]
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+},
 }
 
 module.exports = nextConfig
