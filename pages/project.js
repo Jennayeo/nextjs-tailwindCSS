@@ -2,17 +2,23 @@ import React, {useState, useEffect} from 'react';
 import Header from "../components/header";
 import AboutMe from "../components/about-me";
 import { TOKEN, DATABASE_ID } from '../config';
+import Contact from "../components/contact";
 
 export default function Project({result}) {
     const [ english, setEnglish ] = useState(false);
     const [ darkMode, setDarkMode ] = useState(true);
-
+     const [ loading, setLoading ] = useState(false);
     console.log(result);
 
+    useEffect(() => {
+      setLoading(true);
+    }, []);
+
     return (
-        <div className={`${darkMode ? 'bg-[#222222]' : 'bg-white'} transition-colors duration-500 ease-in-out`}>
+        <div className='h-[100vh]'>
             <Header setEnglish={setEnglish} english={english} setDarkMode={setDarkMode} darkMode={darkMode}/>
-            <AboutMe english={english} projectList={result.results}/>
+            <AboutMe english={english} projectList={result.results} loading={loading} darkMode={darkMode}/>
+            {/* <Contact /> */}
         </div>
     )
 }
@@ -35,7 +41,8 @@ export async function getStaticProps() {
     const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options)
     const result = await res.json();
 
-  
+    // await setLoading(false);
+
     const projectIds = result.results.map((aProject) => (
         aProject.properties.이름.title[0].plain_text
     ))
