@@ -25,15 +25,20 @@ export default function ProjectModal(props) {
                 <Carousel imgUrl={imgUrl}/>
                 <h1 className="text-2xl font-bold">💡Background</h1>
                 <div className="mb-[20px]">{props.currentModalData.properties.Background.rich_text[0].plain_text}</div>
-                <h1 className="text-2xl font-bold">🛠Development</h1>
-                <div className="mb-[20px]">
-                    {
-                        props.currentModalData.properties.Development.rich_text[0].plain_text.split('\n').map((line, index) => {
-                            return (<span key={index}>{line}<br/></span>)
-                        })
-                    }
-                </div>
-                <h1 className="text-2xl font-bold">Tech Stack</h1>
+                {props.currentModalData.properties.Development.rich_text[0].plain_text == '추가 예정' ?
+                '' :
+                <>
+                    <h1 className="text-2xl font-bold">⚙️Development</h1>
+                    <div className="mb-[20px]">
+                        {
+                            props.currentModalData.properties.Development.rich_text[0].plain_text.split('\n').map((line, index) => {
+                                return (<span key={index}>{line}<br/></span>)
+                            })
+                        }
+                    </div>
+                </>
+                }
+                <h1 className="text-2xl font-bold">🛠️Tech Stack</h1>
                 <div>
                     {
                         props.currentModalData.properties.TechStack.rich_text[0].plain_text.split('\n').map((line, index) => {
