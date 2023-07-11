@@ -28,7 +28,7 @@ export default function ProjectModal(props) {
                 <h1 className="text-2xl font-bold">🛠Development</h1>
                 <div className="mb-[20px]">
                     {
-                        props.currentModalData.properties.Development.rich_text[0].plain_text.split('\n').map( line, index => {
+                        props.currentModalData.properties.Development.rich_text[0].plain_text.split('\n').map((line, index) => {
                             return (<span key={index}>{line}<br/></span>)
                         })
                     }
@@ -36,7 +36,7 @@ export default function ProjectModal(props) {
                 <h1 className="text-2xl font-bold">Tech Stack</h1>
                 <div>
                     {
-                        props.currentModalData.properties.TechStack.rich_text[0].plain_text.split('\n').map( line, index => {
+                        props.currentModalData.properties.TechStack.rich_text[0].plain_text.split('\n').map((line, index) => {
                             return (<span key={index}>{line}<br/></span>)
                         })
                     }
