@@ -4,8 +4,6 @@ import Carousel from '../carousel';
 export default function ProjectModal(props) {
 
     // const [development, setDevelopment] = useState();
-    
-    console.log(props);
     const imgUrl = props.currentModalData.properties.Features.files;
     // useEffect(() => {
     //     if (props.currentModalData.properties.Development.rich_text[0].plain_text) {

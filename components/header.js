@@ -4,10 +4,6 @@ import Link from 'next/link';
 
 export default function Header(props){
 
-    useEffect(() => {
-        console.log(props);
-    },[])
-
     return (
         <>
            <header className="text-gray-600 body-font fixed p-10 w-[100%] h-[100px]">

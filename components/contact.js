@@ -10,7 +10,6 @@ export default function Contact({result}) {
     const [ english, setEnglish ] = useState(false);
     const [ darkMode, setDarkMode ] = useState(true);
      const [ loading, setLoading ] = useState(false);
-    console.log(result);
 
     useEffect(() => {
       setLoading(true);

@@ -19,16 +19,6 @@ SwiperCore.use([Navigation]);
 export default function Carousel(props) {
     // const [loading, setLoading] = useState(false);
     const [imageLoaded, setImageLoaded] = useState(false);
-
-    useEffect(() => {
-        // setLoading(true);    
-    },[]);
-    
-    // useEffect(() => {
-    //     console.log('loading',loading);
-
-    // },[loading]);
-
     const swiperRef = useRef(null);    
 
     const customLoader = ({ src, width, quality }) => {
@@ -40,7 +30,6 @@ export default function Carousel(props) {
     const slidePrev = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
             swiperRef.current.swiper.slidePrev();
-            console.log('slidePrev')
             // setLoading(true);
         }
     }
@@ -48,7 +37,6 @@ export default function Carousel(props) {
     const slideNext = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
             swiperRef.current.swiper.slideNext();
-            console.log('slideNext', swiperRef)
             // setLoading(true);
             
         }
@@ -61,10 +49,10 @@ export default function Carousel(props) {
         }));
       };
     
-      const addLoading = (img) => {
-        // img.loading = true;
-        console.log(img);
-      }
+    //   const addLoading = (img) => {
+    //     // img.loading = true;
+    //     console.log(img);
+    //   }
     
     return (
         <div className="flex items-center mb-[20px]">

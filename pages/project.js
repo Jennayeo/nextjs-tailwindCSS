@@ -8,7 +8,6 @@ export default function Project({result}) {
     const [ english, setEnglish ] = useState(false);
     const [ darkMode, setDarkMode ] = useState(true);
      const [ loading, setLoading ] = useState(false);
-    console.log(result);
 
     useEffect(() => {
       setLoading(true);
@@ -46,8 +45,6 @@ export async function getStaticProps() {
     const projectIds = result.results.map((aProject) => (
         aProject.properties.이름.title[0].plain_text
     ))
-
-    console.log(`projectIds : ${projectIds}`);
 
     return {
       props: {result},

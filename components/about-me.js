@@ -14,12 +14,6 @@ export default function AboutMe(props) {
   const [projectDiv, setProjectDiv] = useState(false);
   const [projectDivOnBtnClicked, setProjectDivOnBtnClicked] = useState(false);
 
-  useEffect(() => {
-    console.log(props);
-    // props.projectList.map((project) => {
-    //   console.log(project);
-    // })
-  }, [])
 
   useEffect(() => {
     if (projectDiv) {
@@ -44,7 +38,6 @@ export default function AboutMe(props) {
   // }
 
   const clickModalOpen = (project) => {
-    console.log(project);
     setModalOpen(true);
     setCurrentModal(project);
   }
