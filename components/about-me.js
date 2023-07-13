@@ -31,12 +31,6 @@ export default function AboutMe(props) {
 
   }
 
-  // const goToScroll = (name) => {
-  //   var location = document.querySelector("." + name).offsetTop;
-  //   window.scrollTo({top: location, behavior: 'smooth'});
-  //   setShowCards(true);
-  // }
-
   const clickModalOpen = (project) => {
     setModalOpen(true);
     setCurrentModal(project);
@@ -86,11 +80,12 @@ export default function AboutMe(props) {
         <div className='flex flex-wrap pt-[100px] w-[100%] max-w-[1200px] m-auto' id="open-modal">
         {props.projectList.map((project,index) => {
           return (
-            <div className={`w-[calc(33.33%-20px)] max-h-[100px] m-[10px] cursor-pointer	box-border rounded-[10px] p-[15.55%] transition-all duration-300 ease-linear hover:translate-y-[-10px] hover:shadow-md animate-fadeInLeft`}
-                onClick={() => clickModalOpen(project)} key={index} data-modal-target="#modal2"
-                style={{ backgroundImage: `url(${project.cover?.file.url})`,backgroundSize: 'cover' }}
-            />
-            // </div>
+            <>
+              <div className={`w-[calc(33.33%-20px)] max-h-[100px] m-[10px] cursor-pointer	box-border rounded-[10px] p-[15.55%] transition-all duration-300 ease-linear hover:translate-y-[-10px] hover:shadow-md animate-fadeInLeft`}
+                  onClick={() => clickModalOpen(project)} key={index} data-modal-target="#modal2"
+                  style={{ backgroundImage: `url(${project.cover?.file.url})`,backgroundSize: 'cover' }}
+              />
+            </>
           )
         })}
         {modalOpen? <ProjectModal setModalOpen={setModalOpen} currentModalData={currentModalData} loading={props.loading}/> : ''}

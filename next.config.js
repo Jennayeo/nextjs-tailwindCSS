@@ -3,10 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
-      // 'www.notion.so',
-      // 'images.unsplash.com',
+      'www.notion.so',
+      'images.unsplash.com',
       's3.us-west-2.amazonaws.com'
-    ]
+    ],
+    format: ['image/png', 'image/webp', 'image/jpeg']
   },
   eslint: {
     ignoreDuringBuilds: true,

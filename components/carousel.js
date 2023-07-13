@@ -4,8 +4,6 @@ import SwiperCore, { Navigation, Scrollbar } from "swiper";
 import Image from 'next/image';
 import next from "resources/next.png";
 import back from "resources/back.png";
-import fms1 from "resources/project/fms1.png";
-import fms2 from "resources/project/fms2.png";
 
 // core version + navigation, pagination modules:
 // import Swiper from 'swiper';
