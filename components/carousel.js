@@ -77,7 +77,7 @@ export default function Carousel(props) {
                                     </div>
                                 
                                 }
-                                    <Image src={img.file.url} width={500} height={100} onLoadingComplete={() => addLoading(img)} onLoad={() => handleImageLoad(index)}/>
+                                    <Image src={img.file.url} width={500} height={100} onLoad={() => handleImageLoad(index)}/>
                             </div>
                         </SwiperSlide>
                         // : 

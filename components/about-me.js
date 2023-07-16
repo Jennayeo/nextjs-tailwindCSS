@@ -5,7 +5,7 @@ import jennaEmoji from 'resources/emojijenna.png';
 import Image from 'next/image';
 // import ScrollDown from "resources/arrow-down.png";
 import ProjectModal from "../components/projects/project-modal";
-
+import ProjectItem from "../components/projects/projectItem";
 export default function AboutMe(props) {
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -77,15 +77,11 @@ export default function AboutMe(props) {
         <div className={`recent-work-container ${props.darkMode ? 'bg-[#060918]' : 'bg-white'} transition-colors duration-500 ease-in-out w-[100vw] h-[100vh]`}>
         {/* <!-- <div>My Recent Work</div> --> */}
         
-        <div className='flex flex-wrap pt-[100px] w-[100%] max-w-[1200px] m-auto' id="open-modal">
+        <div className='flex flex-wrap pt-[100px] w-[100%] h-[100%] max-w-[1200px] m-auto' id="open-modal">
         {props.projectList.map((project,index) => {
           return (
-            <>
-              <div className={`w-[calc(33.33%-20px)] max-h-[100px] m-[10px] cursor-pointer	box-border rounded-[10px] p-[15.55%] transition-all duration-300 ease-linear hover:translate-y-[-10px] hover:shadow-md animate-fadeInLeft`}
-                  onClick={() => clickModalOpen(project)} key={index} data-modal-target="#modal2"
-                  style={{ backgroundImage: `url(${project.cover?.file.url})`,backgroundSize: 'cover' }}
-              />
-            </>
+            <ProjectItem project={project} index={index} setModalOpen={setModalOpen} setCurrentModal={setCurrentModal}/>
+            
           )
         })}
         {modalOpen? <ProjectModal setModalOpen={setModalOpen} currentModalData={currentModalData} loading={props.loading}/> : ''}
@@ -96,78 +92,6 @@ export default function AboutMe(props) {
       ) : 
       ''
       }
-      
-{/* 
-      <!-- <button >Open Modal</button> -->
-      <!-- modal section -->
-      <div id="modal1" className="modal">
-          <div className="modal-content">
-              <span className="close">&times;</span>
-              <div id="modal-content"></div>
-              <!-- <p>modal1</p> -->
-          </div>
-      </div>
-      <div id="modal2" className="modal">
-          <div className="modal-content">
-              <span className="close">&times;</span>
-              <h1>💡 Background</h1>
-              <p>This is a team project that created a community to find hiking partners. SANTA is a service that helps people find hiking partners who are hesitant to go hiking alone and whose acquaintances are too busy to join. The service allows the host of a hiking event to accept or reject applicants and allows participants to apply for or cancel their participation. Users can also leave reviews for events they have participated in. The project was developed using React, a JavaScript-based framework, and Redux for state management. Through this project, the team was able to improve their collaboration skills with backend developers and designers.</p>
-              <!-- <h1>🛠Development</h1> -->
-              <p>Kakao social login
-                  Host events:
-                  The host can write a recruitment post by adding desired date, location, number of people, image, and content.
-                  The host can accept or reject applicants.
-                  The post is automatically closed when the host wants to close it or when the recruitment period is over.
-                  Participate in events:
-                  Users can apply to desired events.
-                  They can cancel their application before the event is closed.
-                  Leave reviews for events:
-                  Users can only leave reviews for events they have participated in.
-                  My Page:
-                  Users can check events they have applied, participated, or written.
-                  They can also check events other users have applied, participated, or written.</p>
-              <h1>🛠 Tech Stack</h1>
-              <p>
-                  - React
-                  - Java Script
-                  - redux
-              </p>
-          </div>
-      </div>
-      <div className="recent-work-container">
-        <!-- <div>My Recent Work</div> -->
-        <div className='project-container' id="open-modal">
-            <div className="project" onclick="openModal('project1')" data-modal-target="#modal1">
-                <img src="resources/project/fms-forBusiness2.png" alt="Project 1">
-                <h3>Project 1</h3>
-              </div>
-              
-              <div className="project" onclick="openModal('project2')" data-modal-target="#modal2">
-                <img src="resources/project/fms-forBusinessStaff3.png" alt="Project 2">
-                <h3>Project 2</h3>
-              </div>
-              
-              <div className="project" onclick="openModal('project3')">
-                <img src="resources/project/fms1.png" alt="Project 3">
-                <h3>Project 3</h3>
-              </div>
-              
-              <div className="project" onclick="openModal('project4')">
-                <img src="resources/project/fmsStaff1.png" alt="Project 4">
-                <h3>Project 4</h3>
-              </div>
-              
-              <div className="project" onclick="openModal('project5')">
-                <img src="resources/project/santa_project.png" alt="Project 5">
-                <h3>Project 5</h3>
-              </div>
-              
-              <div className="project" onclick="openModal('project6')">
-                <img src="project6.jpg" alt="Project 6">
-                <h3>Project 6</h3>
-              </div>
-      </div>
-      </div> */}
     </div>
     )
 }
