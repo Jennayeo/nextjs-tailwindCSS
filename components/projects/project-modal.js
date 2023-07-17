@@ -9,7 +9,6 @@ export default function ProjectModal(props) {
     //     if (props.currentModalData.properties.Development.rich_text[0].plain_text) {
     //         let str = props.currentModalData.properties.Development.rich_text[0].plain_text;
     //         setDevelopment(str.replace(/\n/ig, '<br>'));
-    //         console.log(development);
     //     }
     // }, []);
 
